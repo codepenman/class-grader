@@ -15,21 +15,121 @@
  var prScale = 10.0;
  var mScale = 10.0;
  var fScale = 10.0;
-
+ 
+ //Default scores
+ 
+ var scaledHomeworkScore = 0.0;
+ var scaledLabScore = 0.0;
+ var scaledProjectScore= 0.0;
+ var scaledPresentationScore = 0.0;
+ var scaledMidtermScore = 0.0;
+ var scaledFinalScore = 0.0;
+ var totalScore = 0.0;
+ var finalPercentage=0.0;
+ 
+ var computeHomeworkScore = function()
+ {
+    var homeWorkPoints= Number($('#hpoints').val());
+    if (homeWorkPoints > hgApoint) 
+    {
+      alert("homework points you entered is greater than cutoff");
+    }
+    else 
+    {
+      scaledHomeworkScore = hScale*homeWorkPoints/100;
+      
+    }
+  
+ };
+ 
+ var computeLabScore = function()
+ {
+    var labPoints= Number($('#lpoints').val());
+    if (labPoints > lgApoint) 
+    {
+      alert("lab points you entered is greater than cutoff");
+    }
+    else 
+    {
+      scaledLabScore = lScale*labPoints/100;
+    }
+  
+ };
+ 
+  var computeProjectScore = function()
+ {
+    var projectPoints= Number($('#ppoints').val());
+    if (projectPoints > pgApoint) 
+    {
+      alert("project points you entered is greater than cutoff");
+    }
+    else 
+    {
+      scaledProjectScore = pScale*projectPoints/100;
+    }
+  
+ };
+ 
+ var computePresentationScore = function()
+ {
+    var presentationPoints= Number($('#prpoints').val());
+    if (presentationPoints > prgApoint) 
+    {
+      alert("presentation points you entered is greater than cutoff");
+    }
+    else 
+    {
+      scaledPresentationScore = prScale*presentationPoints/100;
+    }
+  
+ };
+ 
+ var computeMidtermScore = function()
+ {
+    var midtermPoints= Number($('#mpoints').val());
+    if (midtermPoints > mgApoint) 
+    {
+      alert("midterm points you entered is greater than cutoff");
+    }
+    else 
+    {
+      scaledMidtermScore = mScale*midtermPoints/100;
+    }
+  
+ };
+ 
+  var computeFinalScore = function()
+ {
+    var finalPoints= Number($('#fpoints').val());
+    if (finalPoints > fgApoint) 
+    {
+      alert("finals points you entered is greater than cutoff");
+    }
+    else 
+    {
+      scaledFinalScore = fScale*finalPoints/100;
+    }
+  
+ };
  var computeGrade = function()
  {
-    var currentPoints = Number( $('#points').val() );
+    
     var currentGrade = "NA";
- 
-    if (currentPoints >= hgApoint)
-    {
-        currentGrade = "A";
-    }
-    else
-    {
-        currentGrade = "F";
-    }
-    $('#finalgrade').text(currentGrade);
+    computeHomeworkScore();
+    computeLabScore();
+    computeProjectScore();
+    computePresentationScore();
+    computeMidtermScore();
+    computeFinalScore();
+    totalScore=scaledHomeworkScore+scaledLabScore+scaledProjectScore+scaledPresentationScore+scaledMidtermScore+scaledFinalScore;
+    alert("total score:"+totalScore);
+    var totalCutOff =(hScale*hgApoint) + (lScale*lgApoint) + (pScale*pgApoint) + (prScale*prgApoint) + (mScale*mgApoint) + (fScale*fgApoint);
+    totalCutOff=totalCutOff/100; 
+    finalPercentage=(totalScore/totalCutOff)*100;
+    alert("final percentage:"+finalPercentage);
+    var grade = getGrade(finalPercentage);
+    // To be modified as per the final range obtained above
+    $('#finalgrade').text(grade);
  };
  
   var saveHomeworkSettings = function() 
