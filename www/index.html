@@ -9,7 +9,6 @@
                 <link rel="stylesheet" href="js/jquerymobile/jquery.mobile-1.4.5.min.css" />
                 <script src="js/jquerymobile/demos/js/jquery.js"></script>
                 <script src="js/jquerymobile/jquery.mobile-1.4.5.min.js"></script>
-                <script src="js/index.js"></script>
                 </head>
     
     <!--  h=homework, l=lab, p=project, pr=presentation, m=midterm, f=finals -->
@@ -65,7 +64,7 @@
                 <a href="#" id='cancelSettings' class="ui-btn ui-icon-delete ui-btn-icon-left" data-rel="back">Cancel</a>
                 <h1>Grade - Settings</h1>
             </div>
-            <div data-role="content" class="">
+            <div>
                 <form>
                     <div data-role="fieldcontain">
                    <label for="Cutoff Points">Homework cutoff</label> <input type="number" name="hgradeCutOff" id="hgradeCutOff" value="" placeholder="Homework points Cutoff at">
@@ -96,14 +95,43 @@
                      <label for="Cutoff Points">Finals cutoff</label> <input type="number" name="fgradeCutOff" id="fgradeCutOff" value="" placeholder="Final points Cutoff at">
                      <label for="Scaling Factor">Finals Scaling Factor</label> <input type="number" name="fScaleFactor" id="fScaleFactor" value="" placeholder="Finals scaling factor at">   
                     </div>
+					
+					<div>
+                     <label>Grade Range</label>
+					 <ul>
+						<li>
+							<label for="aGradeRange">A: </label>
+							<input type="number" name="aGradeMax" id="aGradeMax" value="100" placeholder="100%" style="width: 10;"></input>
+							<input type="number" name="aGradeMin" id="aGradeMin" value="90" placeholder="90%"></input>
+						</li>
+						<li>						
+							<label for="bGradeRange">B: </label>
+							<input type="number" name="bGradeMax" id="bGradeMax" value="89" placeholder="89%">
+							<input type="number" name="bGradeMin" id="bGradeMin" value="80" placeholder="80%">
+						</li>
+						<li>
+							<label for="cGradeRange">C: </label>
+							<input type="number" name="cGradeMax" id="cGradeMax" value="79" placeholder="79%">
+							<input type="number" name="cGradeMin" id="cGradeMin" value="70" placeholder="70%">
+						</li>
+						<li>
+							<label for="dGradeRange">D: </label>
+							<input type="number" name="dGradeMax" id="dGradeMax" value="69" placeholder="69%">
+							<input type="number" name="dGradeMin" id="dGradeMin" value="60" placeholder="60%">							
+						</li>
+						<li>
+							<label for="fGradeRange">F: </label>
+							<input type="number" name="fGradeMax" id="fGradeMax" value="59" placeholder="59%">
+							<input type="number" name="fGradeMin" id="fGradeMin" value="0" placeholder="0%">
+						</li>
+					 </ul>
+                    </div>
                     <p style="text-align: center;">
-                        <a href="#" id='saveSettings' data-role="button" data-inline="true" data-icon="check">Save
-                        </a>
-                        </p>
-                        </form>
+                        <a href="#" id='saveSettings' data-role="button" data-inline="true" data-icon="check">Save</a>
+					</p>
+                </form>
             </div>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
         <script src="js/index.js"></script>
     </body>
 </html>

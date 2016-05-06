@@ -15,7 +15,7 @@
  var prScale = 10.0;
  var mScale = 10.0;
  var fScale = 10.0;
- 
+
  var computeGrade = function()
  {
     var currentPoints = Number( $('#points').val() );
@@ -31,6 +31,7 @@
     }
     $('#finalgrade').text(currentGrade);
  };
+ 
   var saveHomeworkSettings = function() 
   {      
        
@@ -156,6 +157,91 @@
         }
    };
  
+var saveGradeRange = function()	{
+	console.log("Inside saveGradeRange");
+		//fetch the grade
+		var aMin = parseFloat($('#aGradeMin').val());
+		var aMax = parseFloat($('#aGradeMax').val());
+		
+		var bMin = parseFloat($('#bGradeMin').val());
+		var bMax = parseFloat($('#bGradeMax').val());
+		
+		var cMin = parseFloat($('#cGradeMin').val());
+		var cMax = parseFloat($('#cGradeMax').val());
+		
+		var dMin = parseFloat($('#dGradeMin').val());
+		var dMax = parseFloat($('#dGradeMax').val());
+		
+		var fMin = parseFloat($('#fGradeMin').val());
+		var fMax = parseFloat($('#fGradeMax').val());
+		
+		//check for overlap
+		if(bMin >= aMax)
+			alert("Overlap between A and B grades");
+		if(cMin >= aMax)
+			alert("Overlap between A and C grades");
+		if(dMin >= aMax)
+			alert("Overlap between A and D grades");
+		if(fMin >= aMax)
+			alert("Overlap between A and F grades");
+		
+		if(cMin >= bMax)
+			alert("Overlap between B and C grades");
+		if(dMin >= bMax)
+			alert("Overlap between B and D grades");
+		if(fMin >= bMax)
+			alert("Overlap between B and F grades");
+
+		if(dMin >= cMax)
+			alert("Overlap between C and D grades");
+		if(fMin >= cMax)
+			alert("Overlap between C and F grades");
+
+		if(fMin >= dMax)
+			alert("Overlap between D and F grades");
+		
+		//Check for correctness
+		if(aMin < bMin && aMax < bMax)	
+			alert("Grade A should have Higher Percentage than Grade B");
+		if(aMin < cMin && aMax < cMax)	
+			alert("Grade A should have Higher Percentage than Grade C");
+		if(aMin < dMin && aMax < dMax)	
+			alert("Grade A should have Higher Percentage than Grade D");
+		if(aMin < fMin && aMax < fMax)	
+			alert("Grade A should have Higher Percentage than Grade F");
+		
+		if(bMin < cMin && bMax < cMax)	
+			alert("Grade B should have Higher Percentage than Grade C");
+		if(bMin < dMin && bMax < dMax)	
+			alert("Grade B should have Higher Percentage than Grade D");
+		if(bMin < fMin && bMax < fMax)	
+			alert("Grade B should have Higher Percentage than Grade F");
+		
+		if(cMin < dMin && cMax < dMax)	
+			alert("Grade C should have Higher Percentage than Grade D");
+		if(cMin < fMin && cMax < fMax)	
+			alert("Grade C should have Higher Percentage than Grade F");
+				
+		if(dMin < fMin && dMax < fMax)	
+			alert("Grade D should have Higher Percentage than Grade F");
+						
+		//update the local storage
+        localStorage.setItem('aMin', aMin);
+		localStorage.setItem('aMax', aMax);
+
+        localStorage.setItem('bMin', bMin);
+		localStorage.setItem('bMax', bMax);
+
+        localStorage.setItem('cMin', cMin);
+		localStorage.setItem('cMax', cMax);
+
+        localStorage.setItem('dMin', dMin);
+		localStorage.setItem('dMax', dMax);
+
+        localStorage.setItem('fMin', fMin);
+		localStorage.setItem('fMax', fMax);
+};
+
  var saveSettings = function()
  {
    
@@ -166,6 +252,9 @@
           savePresentationSettings();
           saveMidtermSettings();
           saveFinalSettings();
+		  
+		  saveGradeRange();
+		  alert(getGrade(91.0));
           $.mobile.pageContainer.pagecontainer("change", "#mainPage");
           //window.history.back();
     }
@@ -313,6 +402,71 @@ var initializeFinalSettings = function() {
                   $('#fScaleFactor').val(fScale);
 };
  
+var initializeGradeRange = function() {
+	var aMax = localStorage.getItem('aMax');
+	var aMin = localStorage.getItem('aMin');
+	
+	var bMax = localStorage.getItem('bMax');
+	var bMin = localStorage.getItem('bMin');
+
+	var cMax = localStorage.getItem('cMax');
+	var cMin = localStorage.getItem('cMin');
+	
+	var dMax = localStorage.getItem('dMax');
+	var dMin = localStorage.getItem('dMin');
+	
+	var fMax = localStorage.getItem('fMax');
+	var fMin = localStorage.getItem('fMin');	
+	
+	$('#aGradeMax').val(aMax);
+	$('#aGradeMin').val(aMin);
+
+	$('#bGradeMax').val(bMax);
+	$('#bGradeMin').val(bMin);
+
+	$('#cGradeMax').val(cMax);
+	$('#cGradeMin').val(cMin);
+
+	$('#dGradeMax').val(dMax);
+	$('#dGradeMin').val(dMin);
+
+	$('#fGradeMax').val(fMax);
+	$('#fGradeMin').val(fMin);
+};
+  
+var getGrade = function(score)	{
+	 var aMax = localStorage.getItem('aMax');
+	 var aMin = localStorage.getItem('aMin');
+
+	 var bMax = localStorage.getItem('bMax');
+	 var bMin = localStorage.getItem('bMin');
+
+	 var cMax = localStorage.getItem('cMax');
+	 var cMin = localStorage.getItem('cMin');
+
+	 var dMax = localStorage.getItem('dMax');
+	 var dMin = localStorage.getItem('dMin');
+
+	 var fMax = localStorage.getItem('fMax');
+	 var fMin = localStorage.getItem('fMin');
+	
+	 if(score >= aMin && score <= aMax)	{
+		 return "A";
+	 }
+	 if(score >= bMin && score <= bMax)	{
+		 return "B";
+	 }
+	 if(score >= cMin && score <= cMax)	{
+		 return "C";
+	 }
+	 if(score >= dMin && score <= dMax)	{
+		 return "D";
+	 }	 
+	 if(score >= fMin && score <= fMax)	{
+		 return "F";
+	 }	 
+ };
+ 
  // Setup the event handlers
  $( document ).on( "ready", function()
                   {
@@ -325,6 +479,8 @@ var initializeFinalSettings = function() {
                   initializePresentationSettings();
                   initializeMidtermSettings();
                   initializeFinalSettings();
+				  initializeGradeRange();
+				  
  });
 
  // Load plugin
