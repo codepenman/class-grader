@@ -17,7 +17,6 @@
  var fScale = 10.0;
  
  //Default scores
- 
  var scaledHomeworkScore = 0.0;
  var scaledLabScore = 0.0;
  var scaledProjectScore= 0.0;
@@ -26,6 +25,20 @@
  var scaledFinalScore = 0.0;
  var totalScore = 0.0;
  var finalPercentage=0.0;
+ 
+ var aMaxDefault = 100.0;
+ var aMinDefault = 90.0;
+ var bMaxDefault = 89.0;
+ var bMinDefault = 80.0;
+ var cMaxDefault = 79.0;
+ var cMinDefault = 70.0;
+ var dMaxDefault = 69.0;
+ var dMinDefault = 60.0;
+ var fMaxDefault = 59.0;
+ var fMinDefault = 0;
+ 
+ var partnerURL = "http://snehaskamath.com/labs/";
+ var myURL = "http://www.homedraftsmen4u.com/cmpe-235/"
  
  var computeHomeworkScore = function()
  {
@@ -516,7 +529,32 @@ var initializeGradeRange = function() {
 	var dMin = localStorage.getItem('dMin');
 	
 	var fMax = localStorage.getItem('fMax');
-	var fMin = localStorage.getItem('fMin');	
+	var fMin = localStorage.getItem('fMin');		
+	
+	if(aMax == undefined)
+		aMax = aMaxDefault;
+	if(aMin == undefined)
+		aMin = aMinDefault;
+	
+	if(bMax == undefined)
+		bMax = bMaxDefault;
+	if(bMin == undefined)
+		bMin = bMinDefault;
+	
+	if(cMax == undefined)
+		cMax = cMaxDefault;
+	if(cMin == undefined)
+		cMin = cMinDefault;
+	
+	if(dMax == undefined)
+		dMax = dMaxDefault;
+	if(dMin == undefined)
+		dMin = dMinDefault;
+	
+	if(fMax == undefined)
+		fMax = fMaxDefault;
+	if(fMin == undefined)
+		fMin = fMinDefault;
 	
 	$('#aGradeMax').val(aMax);
 	$('#aGradeMin').val(aMin);
@@ -567,12 +605,30 @@ var getGrade = function(score)	{
 	 }	 
  };
  
+ var getStudentInfo = function()	{
+
+	console.log("Inside getJSON");
+	
+	/*$.ajax({
+	  dataType: "json",
+	  url: myURL + "test.php",
+	  success: onSuccess
+	});*/
+	$.getJSON(partnerURL + "sample.php", onSuccess);	 
+	$.getJSON(myURL + "test.php", onSuccess);	 
+ };
+ 
+ var onSuccess = function(data)	{
+		console.log("Inside success");
+		var message =  data.msg;
+		$('#mainPage').append('</br><p>' + message + '</p></br>');
+ }
  // Setup the event handlers
  $( document ).on( "ready", function()
                   {
                   $('#computeGrade').on('click', computeGrade);
                   $('#saveSettings').on('click', saveSettings);
-                  $('#cancelSettings').on('click', cancelSettings);
+                  $('#cancelSettings').on('click', cancelSettings);				  
                   initializeHomeWorkSettings();
                   initializeLabSettings();
                   initializeProjectSettings();
@@ -588,7 +644,10 @@ var getGrade = function(score)	{
                   StatusBar.overlaysWebView( false );
                   StatusBar.backgroundColorByName("gray");
                   });
- }
 
  
+ $( document ).on("pageshow", "#mainPage", function()	{
+					getStudentInfo();
+				  });				  
+ }
  )(jQuery);

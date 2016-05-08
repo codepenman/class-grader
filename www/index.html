@@ -3,40 +3,40 @@
 <html>
     <head>
         <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1">
-            <meta charset="utf-8">
-                <title>Grade Calculator</title>
-                <!-- loading from cdn took a very long time. hence adding jquerymobile to project folder -->
-                <link rel="stylesheet" href="js/jquerymobile/jquery.mobile-1.4.5.min.css" />
-                <script src="js/jquerymobile/demos/js/jquery.js"></script>
-                <script src="js/jquerymobile/jquery.mobile-1.4.5.min.js"></script>
-                </head>
+        <meta charset="utf-8">
+        <title>Grade Calculator</title>
+        <!-- loading from cdn took a very long time. hence adding jquerymobile to project folder -->
+		<link rel="stylesheet" href="http://www.homedraftsmen4u.com/cmpe-235/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css"></link>	
+		<script src="http://www.homedraftsmen4u.com/cmpe-235/jquery.mobile-1.4.5/demos/js/jquery.js"></script>
+		<script src="http://www.homedraftsmen4u.com/cmpe-235/jquery.mobile-1.4.5/demos/js/jquery.mobile-1.4.5.js"></script> 
+    </head>
     
     <!--  h=homework, l=lab, p=project, pr=presentation, m=midterm, f=finals -->
     <body>
         <div data-role="page" class="" id="mainPage">
-            <div data-role="header" class="">
+            <div data-role="header" class="" data-theme="c">
                 <h1>Grade Factory</h1>
                 <a href="#settingsPage" id='settingsButton' class="ui-btn-right" data-role="button" data-icon="gear">Settings</a>
             </div>
             <div data-role="content" class="">
                 <form>
                     <div data-role="fieldcontain">
-                        <label for="Points">Homework Points</label>
+                        <label for="hpoints">Homework Points</label>
                         <input type="number" name="hpoints" id="hpoints" data-clear-btn="true" maxlength="3" value="" placeholder="Enter homework points here"><br/>
                        </div>
                        
                         <div data-role="fieldcontain">
-                         <label for="Points">Lab Points</label>
+                         <label for="lpoints">Lab Points</label>
                         <input type="number" name="lpoints" id="lpoints" data-clear-btn="true" maxlength="3" value="" placeholder="Enter lab points here"><br/>
                         </div>
                         
                          <div data-role="fieldcontain">
-                         <label for="Points">Project Points</label>
+                         <label for="ppoints">Project Points</label>
                         <input type="number" name="ppoints" id="ppoints" data-clear-btn="true" maxlength="3" value="" placeholder="Enter project points here"><br/>
                          </div>
                          
                          <div data-role="fieldcontain">
-                         <label for="Points">Presentation Points</label>
+                         <label for="prpoints">Presentation Points</label>
                         <input type="number" name="prpoints" id="prpoints" data-clear-btn="true" maxlength="3" value="" placeholder="Enter presentation points here"><br/>
                          </div>
                         
@@ -46,7 +46,7 @@
                          </div>
                          
                          <div data-role="fieldcontain">
-                         <label for="Points">Finals Points</label>
+                         <label for="fpoints">Finals Points</label>
                         <input type="number" name="fpoints" id="fpoints" data-clear-btn="true" maxlength="3" value="" placeholder="Enter final points here"><br/>
                     </div>
                     <p style="text-align: center;">
@@ -67,62 +67,98 @@
             <div>
                 <form>
                     <div data-role="fieldcontain">
-                   <label for="Cutoff Points">Homework cutoff</label> <input type="number" name="hgradeCutOff" id="hgradeCutOff" value="" placeholder="Homework points Cutoff at">
-                   <label for="Scaling Factor">Homework Scaling Factor</label> <input type="number" name="hScaleFactor" id="hScaleFactor" value="" placeholder="Homework scaling factor at">
-                        
+						<label for="hgradeCutOff">Homework Max Points:</label> 
+						<div data-role="rangeslider" data-track-theme="b" data-theme="a">
+							<input type="range" name="hgradeCutOff" id="hgradeCutOff" min="0" max="500" value="110">
+						</div>
+
+<!--						<input type="number" name="hgradeCutOff" id="hgradeCutOff" placeholder="Maximum Points"></input> -->
+						<label for="hScaleFactor">Homework Scaling Factor:</label> 
+						<input type="number" name="hScaleFactor" id="hScaleFactor" placeholder="Homework scaling factor at">							
                     </div>
-                     <div data-role="fieldcontain">
-                   <label for="Cutoff Points">Labs cutoff</label> <input type="number" name="lgradeCutOff" id="lgradeCutOff" value="" placeholder="Lab points Cutoff at">
-                    <label for="Scaling Factor">Lab Scaling Factor</label> <input type="number" name="lScaleFactor" id="lScaleFactor" value="" placeholder="Lab scaling factor at">    
+					
+                    <div data-role="fieldcontain">
+						<label for="lgradeCutOff">Lab Max Points:</label> 
+						<input type="number" name="lgradeCutOff" id="lgradeCutOff" value="" placeholder="Maximum Lab points">
+						<label for="lScaleFactor">Lab Scaling Factor:</label> 
+						<input type="number" name="lScaleFactor" id="lScaleFactor" value="" placeholder="Lab scaling factor at">    
+                    </div>
+                    
+                    <div data-role="fieldcontain">
+                      <label for="pgradeCutOff">Project Max Points:</label> 
+					  <input type="number" name="pgradeCutOff" id="pgradeCutOff" value="" placeholder="Maximum Project Points">
+                      <label for="Scaling Factor">Project Scaling Factor:</label> 
+					  <input type="number" name="pScaleFactor" id="pScaleFactor" value="" placeholder="Project scaling factor at">    
                     </div>
                     
                      <div data-role="fieldcontain">
-                      <label for="Cutoff Points">Project cutoff</label> <input type="number" name="pgradeCutOff" id="pgradeCutOff" value="" placeholder="Project points Cutoff at">
-                      <label for="Scaling Factor">Project Scaling Factor</label> <input type="number" name="pScaleFactor" id="pScaleFactor" value="" placeholder="Project scaling factor at">    
-                    </div>
-                    
-                     <div data-role="fieldcontain">
-                      <label for="Cutoff Points">Presentation cutoff</label> <input type="number" name="prgradeCutOff" id="prgradeCutOff" value="" placeholder="Presentation points Cutoff at">
-                      <label for="Scaling Factor">Presentation Scaling Factor</label> <input type="number" name="prScaleFactor" id="prScaleFactor" value="" placeholder="Presentation scaling factor at">    
+                      <label for="prgradeCutOff">Presentation Max Points:</label> 
+					  <input type="number" name="prgradeCutOff" id="prgradeCutOff" value="" placeholder="Maximum Presentation Points">
+                      <label for="prScaleFactor">Presentation Scaling Factor:</label> 
+					  <input type="number" name="prScaleFactor" id="prScaleFactor" value="" placeholder="Presentation scaling factor at">    
                      </div>
                     
                     <div data-role="fieldcontain">
-                      <label for="Cutoff Points">Midterm cutoff</label> <input type="number" name="mgradeCutOff" id="mgradeCutOff" value="" placeholder="Midterm points Cutoff at">
-                      <label for="Scaling Factor">Midterm Scaling Factor</label> <input type="number" name="mScaleFactor" id="mScaleFactor" value="" placeholder="Midterm scaling factor at"> 
+                      <label for="mgradeCutOff">Midterm Max Points:</label> 
+					  <input type="number" name="mgradeCutOff" id="mgradeCutOff" value="" placeholder="Maximum Midterm Points">
+                      <label for="mScaleFactor">Midterm Scaling Factor:</label> 
+					  <input type="number" name="mScaleFactor" id="mScaleFactor" value="" placeholder="Midterm scaling factor at"> 
                     </div>
                     
                     <div data-role="fieldcontain">
-                     <label for="Cutoff Points">Finals cutoff</label> <input type="number" name="fgradeCutOff" id="fgradeCutOff" value="" placeholder="Final points Cutoff at">
-                     <label for="Scaling Factor">Finals Scaling Factor</label> <input type="number" name="fScaleFactor" id="fScaleFactor" value="" placeholder="Finals scaling factor at">   
+                     <label for="fgradeCutOff">Finals Max Points:</label> 
+					 <input type="number" name="fgradeCutOff" id="fgradeCutOff" value="" placeholder="Maximum Final Points">
+                     <label for="fScaleFactor">Finals Scaling Factor:</label> 
+					 <input type="number" name="fScaleFactor" id="fScaleFactor" value="" placeholder="Finals scaling factor at">   
                     </div>
 					
 					<div>
                      <label>Grade Range</label>
 					 <ul>
-						<li>
-							<label for="aGradeRange">A: </label>
-							<input type="number" name="aGradeMax" id="aGradeMax" value="100" placeholder="100%" style="width: 10;"></input>
-							<input type="number" name="aGradeMin" id="aGradeMin" value="90" placeholder="90%"></input>
+						<li>						
+							<label>Grade 'A':</label>
+							<div style="width: 10%; padding-left:2em" data-role="fieldcontain">
+								<label for="aGradeMax">Max:</label>
+								<input type="number" name="aGradeMx" id="aGradeMax" value="100" placeholder="100%">
+								<label for="aGradeMin">Min:</label>
+								<input type="number" name="aGradeMin" id="aGradeMin" value="90" placeholder="90%">
+							</div>
 						</li>
 						<li>						
-							<label for="bGradeRange">B: </label>
-							<input type="number" name="bGradeMax" id="bGradeMax" value="89" placeholder="89%">
-							<input type="number" name="bGradeMin" id="bGradeMin" value="80" placeholder="80%">
+							<label>Grade 'B':</label>
+							<div  style="width: 10%; padding-left:2em" data-role="fieldcontain">
+								<label for="bGradeMax">Max:</label>
+								<input type="number" name="bGradeMax" id="bGradeMax" value="89" placeholder="89%">
+								<label for="bGradeMin">Min:</label>
+								<input type="number" name="bGradeMin" id="bGradeMin" value="80" placeholder="80%">
+							</div>
 						</li>
 						<li>
-							<label for="cGradeRange">C: </label>
-							<input type="number" name="cGradeMax" id="cGradeMax" value="79" placeholder="79%">
-							<input type="number" name="cGradeMin" id="cGradeMin" value="70" placeholder="70%">
+							<label>Grade 'C':</label>
+							<div  style="width: 10%; padding-left:2em" data-role="fieldcontain">
+								<label for="cGradeMax">Max:</label>
+								<input type="number" name="cGradeMax" id="cGradeMax" value="79" placeholder="79%">
+								<label for="cGradeMin">Min:</label>
+								<input type="number" name="cGradeMin" id="cGradeMin" value="70" placeholder="70%">
+							</div>					
 						</li>
 						<li>
-							<label for="dGradeRange">D: </label>
-							<input type="number" name="dGradeMax" id="dGradeMax" value="69" placeholder="69%">
-							<input type="number" name="dGradeMin" id="dGradeMin" value="60" placeholder="60%">							
+							<label>Grade 'D':</label>
+							<div  style="width: 10%; padding-left:2em" data-role="fieldcontain">
+								<label for="dGradeMax">Max:</label>
+								<input type="number" name="dGradeMax" id="dGradeMax" value="69" placeholder="69%">
+								<label for="dGradeMin">Min:</label>
+								<input type="number" name="dGradeMin" id="dGradeMin" value="60" placeholder="60%">							
+							</div>
 						</li>
 						<li>
-							<label for="fGradeRange">F: </label>
-							<input type="number" name="fGradeMax" id="fGradeMax" value="59" placeholder="59%">
-							<input type="number" name="fGradeMin" id="fGradeMin" value="0" placeholder="0%">
+							<label>Grade 'F':</label>
+							<div  style="width: 10%; padding-left:2em" data-role="fieldcontain">
+								<label for="fGradeMax">Max:</label>
+								<input type="number" name="fGradeMax" id="fGradeMax" value="59" placeholder="59%">
+								<label for="fGradeMin">Min:</label>
+								<input type="number" name="fGradeMin" id="fGradeMin" value="0" placeholder="0%">	
+							</div>
 						</li>
 					 </ul>
                     </div>
