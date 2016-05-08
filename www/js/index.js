@@ -162,7 +162,7 @@
         var hScaleSetting = localStorage.getItem('hScale');
         if(hScaleFac != hScaleSetting) 
         {
-        localStorage.setItem('hScale', hScaleFac);
+        //localStorage.setItem('hScale', hScaleFac);
         hScale = hScaleFac;
         }
   };
@@ -181,7 +181,7 @@
         var lScaleSetting = localStorage.getItem('lScale');
         if(lScaleFac != lScaleSetting) 
         {
-        localStorage.setItem('lScale', lScaleFac);
+        //localStorage.setItem('lScale', lScaleFac);
         lScale = lScaleFac;
         }
    };
@@ -201,7 +201,7 @@
         var pScaleSetting = localStorage.getItem('pScale');
         if(pScaleFac != pScaleSetting) 
         {
-        localStorage.setItem('pScale', pScaleFac);
+       // localStorage.setItem('pScale', pScaleFac);
         pScale = pScaleFac;
         }
    };
@@ -222,7 +222,7 @@
         var prScaleSetting = localStorage.getItem('prScale');
         if(prScaleFac != prScaleSetting) 
         {
-        localStorage.setItem('prScale', prScaleFac);
+        //localStorage.setItem('prScale', prScaleFac);
         prScale = prScaleFac;
         }
    };
@@ -244,7 +244,7 @@
         var mScaleSetting = localStorage.getItem('mScale');
         if(mScaleFac != mScaleSetting) 
         {
-        localStorage.setItem('mScale', mScaleFac);
+       // localStorage.setItem('mScale', mScaleFac);
         mScale = mScaleFac;
         }
    };
@@ -265,9 +265,40 @@
         var fScaleSetting = localStorage.getItem('fScale');
         if(fScaleFac != fScaleSetting) 
         {
-        localStorage.setItem('fScale', fScaleFac);
-        fScale = fScaleFac;
+         fScale = fScaleFac;
         }
+   };
+   
+   var checkScaleSettings = function()
+   {
+        if (hScale+lScale+pScale+prScale+mScale+fScale != 100) {
+		    alert ("Scaling factors should add upto 100%. Restoring to default values.");
+		    
+		     hScale = 10.0;
+             lScale = 40.0;
+             pScale = 20.0;
+             prScale = 10.0;
+             mScale = 10.0;
+             fScale = 10.0;
+             $('#hScaleFactor').val(hScale)
+             $('#lScaleFactor').val(lScale)
+             $('#pScaleFactor').val(pScale)
+             $('#prScaleFactor').val(prScale)
+             $('#mScaleFactor').val(mScale)
+             $('#fScaleFactor').val(fScale)
+             
+		    
+	  } 
+	  else 
+	  { 
+	    localStorage.setItem('hScale', hScale);
+	    localStorage.setItem('lScale', lScale);
+	    localStorage.setItem('pScale', pScale);
+	    localStorage.setItem('prScale',prScale);
+	    localStorage.setItem('mScale', mScale);
+	    localStorage.setItem('fScale', fScale);
+	  }
+      
    };
  
 var saveGradeRange = function()	{
@@ -365,9 +396,10 @@ var saveGradeRange = function()	{
           savePresentationSettings();
           saveMidtermSettings();
           saveFinalSettings();
-		  
+          checkScaleSettings();
 		  saveGradeRange();
-		  alert(getGrade(91.0));
+		  //alert(getGrade(91.0));
+		 
           $.mobile.pageContainer.pagecontainer("change", "#mainPage");
           //window.history.back();
     }
