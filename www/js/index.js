@@ -307,6 +307,7 @@ var saveGradeRange = function()	{
 		var aMin = parseFloat($('#aGradeMin').val());
 		var aMax = parseFloat($('#aGradeMax').val());
 		
+		
 		var bMin = parseFloat($('#bGradeMin').val());
 		var bMax = parseFloat($('#bGradeMax').val());
 		

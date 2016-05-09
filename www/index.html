@@ -68,11 +68,11 @@
                 <form>
                     <div data-role="fieldcontain">
 						<label for="hgradeCutOff">Homework Max Points:</label> 
-						<div data-role="rangeslider" data-track-theme="b" data-theme="a">
+						<!--<div data-role="rangeslider" data-track-theme="b" data-theme="a">
 							<input type="range" name="hgradeCutOff" id="hgradeCutOff" min="0" max="500" value="110">
-						</div>
+						</div>-->
 
-<!--						<input type="number" name="hgradeCutOff" id="hgradeCutOff" placeholder="Maximum Points"></input> -->
+					<input type="number" name="hgradeCutOff" id="hgradeCutOff" placeholder="Maximum Points"></input>
 						<label for="hScaleFactor">Homework Scaling Factor:</label> 
 						<input type="number" name="hScaleFactor" id="hScaleFactor" placeholder="Homework scaling factor at">							
                     </div>
@@ -117,50 +117,40 @@
 					 <ul>
 						<li>						
 							<label>Grade 'A':</label>
-							<div style="width: 10%; padding-left:2em" data-role="fieldcontain">
-								<label for="aGradeMax">Max:</label>
-								<input type="number" name="aGradeMx" id="aGradeMax" value="100" placeholder="100%">
-								<label for="aGradeMin">Min:</label>
-								<input type="number" name="aGradeMin" id="aGradeMin" value="90" placeholder="90%">
-							</div>
+							<div data-role="rangeslider">
+							   <input name="aGradeMin" id="aGradeMin" min="0" max="100" value="90" type="range" />
+                               <input name="aGradeMax" id="aGradeMax" min="0" max="100" value="100" type="range" />
+                            </div>
 						</li>
 						<li>						
 							<label>Grade 'B':</label>
-							<div  style="width: 10%; padding-left:2em" data-role="fieldcontain">
-								<label for="bGradeMax">Max:</label>
-								<input type="number" name="bGradeMax" id="bGradeMax" value="89" placeholder="89%">
-								<label for="bGradeMin">Min:</label>
-								<input type="number" name="bGradeMin" id="bGradeMin" value="80" placeholder="80%">
-							</div>
+							<div data-role="rangeslider">
+							   <input name="bGradeMin" id="bGradeMin" min="0" max="100" value="80" type="range" />
+                               <input name="bGradeMax" id="bGradeMax" min="0" max="100" value="89" type="range"  />
+                            </div>
 						</li>
-						<li>
+						<li>						
 							<label>Grade 'C':</label>
-							<div  style="width: 10%; padding-left:2em" data-role="fieldcontain">
-								<label for="cGradeMax">Max:</label>
-								<input type="number" name="cGradeMax" id="cGradeMax" value="79" placeholder="79%">
-								<label for="cGradeMin">Min:</label>
-								<input type="number" name="cGradeMin" id="cGradeMin" value="70" placeholder="70%">
-							</div>					
+							<div data-role="rangeslider">
+							   <input name="cGradeMin" id="cGradeMin" min="0" max="100" value="70" type="range" />
+                               <input name="cGradeMax" id="cGradeMax" min="0" max="100" value="79" type="range" />
+                            </div>
 						</li>
-						<li>
+						<li>						
 							<label>Grade 'D':</label>
-							<div  style="width: 10%; padding-left:2em" data-role="fieldcontain">
-								<label for="dGradeMax">Max:</label>
-								<input type="number" name="dGradeMax" id="dGradeMax" value="69" placeholder="69%">
-								<label for="dGradeMin">Min:</label>
-								<input type="number" name="dGradeMin" id="dGradeMin" value="60" placeholder="60%">							
-							</div>
+							<div data-role="rangeslider">
+							   <input name="dGradeMin" id="dGradeMin" min="0" max="100" value="60" type="range" />
+                               <input name="dGradeMax" id="dGradeMax" min="0" max="100" value="69" type="range" />
+                            </div>
 						</li>
-						<li>
+						<li>						
 							<label>Grade 'F':</label>
-							<div  style="width: 10%; padding-left:2em" data-role="fieldcontain">
-								<label for="fGradeMax">Max:</label>
-								<input type="number" name="fGradeMax" id="fGradeMax" value="59" placeholder="59%">
-								<label for="fGradeMin">Min:</label>
-								<input type="number" name="fGradeMin" id="fGradeMin" value="0" placeholder="0%">	
-							</div>
+							<div data-role="rangeslider">
+                               <input name="fGradeMin" id="fGradeMin" min="0" max="100" value="50" type="range" />
+                               <input name="fGradeMax" id="fGradeMax" min="0" max="100" value="59" type="range" />
+                            </div>
 						</li>
-					 </ul>
+					</ul>
                     </div>
                     <p style="text-align: center;">
                         <a href="#" id='saveSettings' data-role="button" data-inline="true" data-icon="check">Save</a>
