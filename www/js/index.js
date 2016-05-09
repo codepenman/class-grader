@@ -689,21 +689,19 @@ var getGrade = function(score)	{
 		var email = data.email;
 		var phno = data.phno;
 		var id = data.id;
-		$('#mainPage').append('<h3> Student Information</h3>');
-		$('#mainPage').append('<p> First name : ' + fname + '</p>');
-		$('#mainPage').append('<p> Last name : ' + lname + '</p>');
-		$('#mainPage').append('<p> Email : ' + email + '</p>');
-		$('#mainPage').append('<p> Phone number : ' + phno + '</p>');
-		$('#mainPage').append('<p> ID : ' + id + '</p>');
-
- };
+	    $('#fname').html("First name : " +fname);
+	    $('#lname').html("Last name : " +lname);
+	    $('#email').html("Email : " +email);
+	    $('#phno').html("Phone number : " +phno);
+	    $('#stid').html("Student ID : " + id);
+  };
  var onSuccessCourseInfo = function(data)	{
 	console.log("Inside success");
 	    var courseName = data.courseName;
 	    var courseInfo =  data.courseInfo;
-	    $('#mainPage').append('<h3>Course Information</h3>');
-		$('#mainPage').append('<p> Course name : ' + courseName + '</p>');
-		$('#mainPage').append('<p> Course  description : ' + courseInfo + '</p>');
+	    $('#cName').html("Course name : " + courseName);
+	    $('#cInfo').html("Course info : " + courseInfo);
+	    
  };
  
  var initUI = function()	{
