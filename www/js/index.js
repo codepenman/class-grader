@@ -37,6 +37,8 @@
  var fMaxDefault = 59.0;
  var fMinDefault = 0;
  
+ var scaleError=0;
+ 
  var partnerURL = "http://snehaskamath.com/labs/";
  var myURL = "http://www.homedraftsmen4u.com/cmpe-235/"
  
@@ -286,7 +288,7 @@
              $('#prScaleFactor').val(prScale)
              $('#mScaleFactor').val(mScale)
              $('#fScaleFactor').val(fScale)
-             
+             scaleError=1;
 		    
 	  } 
 	  else 
@@ -422,8 +424,16 @@ var saveGradeRange = function()	{
           saveMidtermSettings();
           saveFinalSettings();
           checkScaleSettings();
+          var err = validateGradeRange();
+		  if(err != -1)	{
+			saveGradeRange();		  
+		  }else{
+			  resetGradeRange();
+		  }
+		 if (!scaleError && err != -1)
+		 {
           $.mobile.pageContainer.pagecontainer("change", "#mainPage");
-
+         }
     }
      catch (ex)
     {
@@ -431,6 +441,73 @@ var saveGradeRange = function()	{
     }
  };
  
+var resetGradeRange = function()	{
+	var aMin = localStorage.getItem("aMin");
+	if(aMin)	{
+		$("#aGradeMin").val(aMin).slider("refresh");
+	}else	{
+		$("#aGradeMin").val(90).slider("refresh");
+	}
+	
+	var aMax = localStorage.getItem("aMax");
+	if(aMax)	{
+		$("#aGradeMax").val(aMax).slider("refresh");		
+	}else{
+		$("#aGradeMax").val(100).slider("refresh");		
+	}
+
+	
+	var bMin = localStorage.getItem("bMin");
+	if(bMin)	{
+		$("#bGradeMin").val(bMin).slider("refresh");
+	}else{
+		$("#bGradeMin").val(80).slider("refresh");		
+	}
+	
+	var bMax = localStorage.getItem("bMax");
+	if(bMax)	{
+		$("#bGradeMax").val(bMax).slider("refresh");	
+	}else	{
+		$("#bGradeMax").val(89).slider("refresh");			
+	}
+	
+	var cMin = localStorage.getItem("cMin");
+	if(cMin)	{
+		$("#cGradeMin").val(cMin).slider("refresh");	
+	}else{
+		$("#cGradeMin").val(70).slider("refresh");
+	}
+	
+	var cMax = localStorage.getItem("cMax");
+	if(cMax)
+		$("#cGradeMax").val(cMax).slider("refresh");
+	else
+		$("#cGradeMax").val(79).slider("refresh");
+	
+	var dMin = localStorage.getItem("dMin");
+	if(dMin)
+		$("#dGradeMin").val(dMin).slider("refresh");
+	else
+		$("#dGradeMin").val(60).slider("refresh");
+	
+	var dMax = localStorage.getItem("dMax");
+	if(dMax)
+		$("#dGradeMax").val(dMax).slider("refresh");
+	else
+		$("#dGradeMax").val(69).slider("refresh");
+
+	var fMin = localStorage.getItem("fMin");
+	if(fMin)
+		$("#fGradeMin").val(fMin).slider("refresh");
+	else
+		$("#fGradeMin").val(0).slider("refresh");
+	
+	var fMax = localStorage.getItem("fMax");
+	if(fMax)
+		$("#fGradeMax").val(fMax).slider("refresh");	
+	else
+		$("#fGradeMax").val(59).slider("refresh");	
+};
 
  var cancelSettings = function()
  {
@@ -710,7 +787,8 @@ var getGrade = function(score)	{
                   initializePresentationSettings();
                   initializeMidtermSettings();
                   initializeFinalSettings();
-				  initializeGradeRange();				  
+				  initializeGradeRange();
+				  getStudentInfo();				  
  });
 
  // Load plugin
@@ -721,7 +799,7 @@ var getGrade = function(score)	{
 				  
  $( document ).on("pageshow", "#mainPage", function()	{
 	 				initUI();
-					getStudentInfo();
+					
 				});				  
  }
  )(jQuery);
