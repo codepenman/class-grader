@@ -423,6 +423,7 @@ var saveGradeRange = function()	{
           saveMidtermSettings();
           saveFinalSettings();
           checkScaleSettings();
+          validateGradeRange();
 		  saveGradeRange();		  
 		 
           $.mobile.pageContainer.pagecontainer("change", "#mainPage");
@@ -709,7 +710,8 @@ var getGrade = function(score)	{
                   initializePresentationSettings();
                   initializeMidtermSettings();
                   initializeFinalSettings();
-				  initializeGradeRange();				  
+				  initializeGradeRange();
+				  getStudentInfo();				  
  });
 
  // Load plugin
@@ -720,7 +722,7 @@ var getGrade = function(score)	{
 				  
  $( document ).on("pageshow", "#mainPage", function()	{
 	 				initUI();
-					getStudentInfo();
+					
 				});				  
  }
  )(jQuery);
