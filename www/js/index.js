@@ -37,6 +37,8 @@
  var fMaxDefault = 59.0;
  var fMinDefault = 0;
  
+ var scaleError=0;
+ 
  var partnerURL = "http://snehaskamath.com/labs/";
  var myURL = "http://www.homedraftsmen4u.com/cmpe-235/"
  
@@ -286,7 +288,7 @@
              $('#prScaleFactor').val(prScale)
              $('#mScaleFactor').val(mScale)
              $('#fScaleFactor').val(fScale)
-             
+             scaleError=1;
 		    
 	  } 
 	  else 
@@ -425,8 +427,10 @@ var saveGradeRange = function()	{
           checkScaleSettings();
           validateGradeRange();
 		  saveGradeRange();		  
-		 
+		 if (!scaleError)
+		 {
           $.mobile.pageContainer.pagecontainer("change", "#mainPage");
+         }
           //window.history.back();
     }
      catch (ex)
