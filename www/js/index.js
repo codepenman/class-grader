@@ -297,8 +297,7 @@
 	    localStorage.setItem('prScale',prScale);
 	    localStorage.setItem('mScale', mScale);
 	    localStorage.setItem('fScale', fScale);
-	  }
-      
+	  }      
    };
  
 var validateGradeRange = function()	{
@@ -327,12 +326,12 @@ var validateGradeRange = function()	{
 			if(bMin >= aMax)	{ //check for correctness
 				alert("Grade B should have Lower Percentage than Grade C");
 			}
-			return;
+			return -1;
 		}
 			
 		if(bMax+1 != aMin)	{ //check for correctness
 			alert("Gap between A and B grades");	
-			return;
+			return -1;
 		}
 
 		//For B & C
@@ -341,12 +340,12 @@ var validateGradeRange = function()	{
 			if(cMin >= bMax)	{ //check for correctness
 				alert("Grade C should have Lower Percentage than Grade B");
 			}
-			return;
+			return -1;
 		}
 			
 		if(cMax+1 != bMin)	{ //check for correctness
 			alert("Gap between C and B grades");	
-			return;
+			return -1;
 		}
 
 		//For C & D
@@ -355,12 +354,12 @@ var validateGradeRange = function()	{
 			if(dMin >= cMax)	{ //check for correctness
 				alert("Grade D should have Lower Percentage than Grade C");
 			}
-			return;
+			return -1;
 		}
 			
 		if(dMax+1 != cMin)	{ //check for correctness
 			alert("Gap between D and C grades");	
-			return;
+			return -1;
 		}		
 		
 		//For D & F
@@ -369,12 +368,12 @@ var validateGradeRange = function()	{
 			if(fMin >= dMax)	{ //check for correctness
 				alert("Grade F should have Lower Percentage than Grade D");
 			}
-			return;
+			return -1;
 		}
 			
 		if(fMax+1 != dMin)	{ //check for correctness
 			alert("Gap between D and F grades");	
-			return;
+			return -1;
 		}
 }
 
@@ -423,10 +422,8 @@ var saveGradeRange = function()	{
           saveMidtermSettings();
           saveFinalSettings();
           checkScaleSettings();
-		  saveGradeRange();		  
-		 
           $.mobile.pageContainer.pagecontainer("change", "#mainPage");
-          //window.history.back();
+
     }
      catch (ex)
     {
@@ -693,8 +690,12 @@ var getGrade = function(score)	{
  };
  
  var initUI = function()	{
-	 initializeHomeWorkSettings(); // With in this method I am able to access hgApoint but not in this method...
-	 $("#hpoints").prop("max", 100).slider("refresh"); // this line should be 	 $("#hpoints").prop("max", hgApoint).slider("refresh");
+	 var hPoints = localStorage.getItem("hgradeCutOff");
+	 if(hPoints)	{
+		$("#hpoints").prop("max", hPoints).slider("refresh"); // this line should be 	 $("#hpoints").prop("max", hgApoint).slider("refresh");
+	 }else	{
+		$("#hpoints").prop("max", 500).slider("refresh"); // this line should be 	 $("#hpoints").prop("max", hgApoint).slider("refresh");
+	 }
  };
 
  // Setup the event handlers
