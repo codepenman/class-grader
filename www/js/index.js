@@ -648,13 +648,24 @@ var getGrade = function(score)	{
 	  success: onSuccess
 	});*/
 	$.getJSON(partnerURL + "sample.php", onSuccess);	 
-	$.getJSON(myURL + "test.php", onSuccess);	 
+		 
  };
  
  var onSuccess = function(data)	{
 		console.log("Inside success");
-		var message =  data.msg;
-		$('#mainPage').append('</br><p>' + message + '</p></br>');
+		var fname =  data.fname;
+		var lname = data.lname;
+		var email = data.email;
+		var phno = data.phno;
+		var id = data.id;
+		$('#mainPage').append('<h3> Student Details</h3>');
+		$('#mainPage').append('<p> First name : ' + fname + '</p>');
+		$('#mainPage').append('<p> Last name : ' + lname + '</p>');
+		$('#mainPage').append('<p> Email : ' + email + '</p>');
+		$('#mainPage').append('<p> Phone number : ' + phno + '</p>');
+		$('#mainPage').append('<p> ID : ' + id + '</p>');
+		
+		
  }
  // Setup the event handlers
  $( document ).on( "ready", function()
