@@ -301,6 +301,82 @@
       
    };
  
+var validateGradeRange = function()	{
+		console.log("Inside saveGradeRange");
+		//fetch the grade
+		var aMin = parseFloat($('#aGradeMin').val());
+		var aMax = parseFloat($('#aGradeMax').val());
+		
+		var bMin = parseFloat($('#bGradeMin').val());
+		var bMax = parseFloat($('#bGradeMax').val());
+		
+		var cMin = parseFloat($('#cGradeMin').val());
+		var cMax = parseFloat($('#cGradeMax').val());
+		
+		var dMin = parseFloat($('#dGradeMin').val());
+		var dMax = parseFloat($('#dGradeMax').val());
+		
+		var fMin = parseFloat($('#fGradeMin').val());
+		var fMax = parseFloat($('#fGradeMax').val());
+		
+		//check for overlap
+		//For A & B
+		if(bMax >= aMin)	{
+			alert("Overlap between B and A grades");
+			if(bMin >= aMax)	{ //check for correctness
+				alert("Grade B should have Lower Percentage than Grade C");
+			}
+			return;
+		}
+			
+		if(bMax+1 != aMin)	{ //check for correctness
+			alert("Gap between A and B grades");	
+			return;
+		}
+
+		//For B & C
+		if(cMax >= bMin)	{
+			alert("Overlap between C and B grades");
+			if(cMin >= bMax)	{ //check for correctness
+				alert("Grade C should have Lower Percentage than Grade B");
+			}
+			return;
+		}
+			
+		if(cMax+1 != bMin)	{ //check for correctness
+			alert("Gap between C and B grades");	
+			return;
+		}
+
+		//For C & D
+		if(dMax >= cMin)	{
+			alert("Overlap between D and C grades");
+			if(dMin >= cMax)	{ //check for correctness
+				alert("Grade D should have Lower Percentage than Grade C");
+			}
+			return;
+		}
+			
+		if(dMax+1 != cMin)	{ //check for correctness
+			alert("Gap between D and C grades");	
+			return;
+		}		
+		
+		//For D & F
+		if(fMax >= dMin)	{
+			alert("Overlap between D and F grades");
+			if(fMin >= dMax)	{ //check for correctness
+				alert("Grade F should have Lower Percentage than Grade D");
+			}
+			return;
+		}
+			
+		if(fMax+1 != dMin)	{ //check for correctness
+			alert("Gap between D and F grades");	
+			return;
+		}
+}
+
 var saveGradeRange = function()	{
 	console.log("Inside saveGradeRange");
 		//fetch the grade
@@ -319,56 +395,6 @@ var saveGradeRange = function()	{
 		var fMin = parseFloat($('#fGradeMin').val());
 		var fMax = parseFloat($('#fGradeMax').val());
 		
-		//check for overlap
-		if(bMin >= aMax)
-			alert("Overlap between A and B grades");
-		if(cMin >= aMax)
-			alert("Overlap between A and C grades");
-		if(dMin >= aMax)
-			alert("Overlap between A and D grades");
-		if(fMin >= aMax)
-			alert("Overlap between A and F grades");
-		
-		if(cMin >= bMax)
-			alert("Overlap between B and C grades");
-		if(dMin >= bMax)
-			alert("Overlap between B and D grades");
-		if(fMin >= bMax)
-			alert("Overlap between B and F grades");
-
-		if(dMin >= cMax)
-			alert("Overlap between C and D grades");
-		if(fMin >= cMax)
-			alert("Overlap between C and F grades");
-
-		if(fMin >= dMax)
-			alert("Overlap between D and F grades");
-		
-		//Check for correctness
-		if(aMin < bMin && aMax < bMax)	
-			alert("Grade A should have Higher Percentage than Grade B");
-		if(aMin < cMin && aMax < cMax)	
-			alert("Grade A should have Higher Percentage than Grade C");
-		if(aMin < dMin && aMax < dMax)	
-			alert("Grade A should have Higher Percentage than Grade D");
-		if(aMin < fMin && aMax < fMax)	
-			alert("Grade A should have Higher Percentage than Grade F");
-		
-		if(bMin < cMin && bMax < cMax)	
-			alert("Grade B should have Higher Percentage than Grade C");
-		if(bMin < dMin && bMax < dMax)	
-			alert("Grade B should have Higher Percentage than Grade D");
-		if(bMin < fMin && bMax < fMax)	
-			alert("Grade B should have Higher Percentage than Grade F");
-		
-		if(cMin < dMin && cMax < dMax)	
-			alert("Grade C should have Higher Percentage than Grade D");
-		if(cMin < fMin && cMax < fMax)	
-			alert("Grade C should have Higher Percentage than Grade F");
-				
-		if(dMin < fMin && dMax < fMax)	
-			alert("Grade D should have Higher Percentage than Grade F");
-						
 		//update the local storage
         localStorage.setItem('aMin', aMin);
 		localStorage.setItem('aMax', aMax);
@@ -388,7 +414,6 @@ var saveGradeRange = function()	{
 
  var saveSettings = function()
  {
-   
     try {
           saveHomeworkSettings();
           saveLabSettings();
@@ -397,8 +422,7 @@ var saveGradeRange = function()	{
           saveMidtermSettings();
           saveFinalSettings();
           checkScaleSettings();
-		  saveGradeRange();
-		  //alert(getGrade(91.0));
+		  saveGradeRange();		  
 		 
           $.mobile.pageContainer.pagecontainer("change", "#mainPage");
           //window.history.back();
@@ -651,24 +675,29 @@ var getGrade = function(score)	{
  };
  
  var onSuccess = function(data)	{
-		console.log("Inside success");
-		var message =  data.msg;
-		$('#mainPage').append('</br><p>' + message + '</p></br>');
- }
+	console.log("Inside success");
+	var message =  data.msg;
+	$('#mainPage').append('</br><p>' + message + '</p></br>');
+ };
+ 
+ var initUI = function()	{
+	 initializeHomeWorkSettings(); // With in this method I am able to access hgApoint but not in this method...
+	 $("#hpoints").prop("max", 100).slider("refresh"); // this line should be 	 $("#hpoints").prop("max", hgApoint).slider("refresh");
+ };
+ 
  // Setup the event handlers
  $( document ).on( "ready", function()
                   {
                   $('#computeGrade').on('click', computeGrade);
                   $('#saveSettings').on('click', saveSettings);
-                  $('#cancelSettings').on('click', cancelSettings);				  
+                  $('#cancelSettings').on('click', cancelSettings);	
                   initializeHomeWorkSettings();
                   initializeLabSettings();
                   initializeProjectSettings();
                   initializePresentationSettings();
                   initializeMidtermSettings();
                   initializeFinalSettings();
-				  initializeGradeRange();
-				  
+				  initializeGradeRange();				  
  });
 
  // Load plugin
@@ -676,10 +705,10 @@ var getGrade = function(score)	{
                   StatusBar.overlaysWebView( false );
                   StatusBar.backgroundColorByName("gray");
                   });
-
- 
- $( document ).on("pageshow", "#mainPage", function()	{
+				  
+ $( document ).on("pagechange", "#mainPage", function()	{
+	 				initUI();
 					getStudentInfo();
-				  });				  
+				});				  
  }
  )(jQuery);
