@@ -745,11 +745,12 @@ var getGrade = function(score)	{
 	  url: myURL + "test.php",
 	  success: onSuccess
 	});*/
-	$.getJSON(partnerURL + "sample.php", onSuccess);	 
+	$.getJSON(partnerURL + "studentInfo.php", onSuccessStudentInfo);
+	$.getJSON(partnerURL + "courseInfo.php", onSuccessCourseInfo);	 
 		 
  };
  
- var onSuccess = function(data)	{
+ var onSuccessStudentInfo = function(data)	{
 	console.log("Inside success");
 	var message =  data.msg;
 		var fname =  data.fname;
@@ -757,13 +758,19 @@ var getGrade = function(score)	{
 		var email = data.email;
 		var phno = data.phno;
 		var id = data.id;
-		$('#mainPage').append('<h3> Student Details</h3>');
-		$('#mainPage').append('<p> First name : ' + fname + '</p>');
-		$('#mainPage').append('<p> Last name : ' + lname + '</p>');
-		$('#mainPage').append('<p> Email : ' + email + '</p>');
-		$('#mainPage').append('<p> Phone number : ' + phno + '</p>');
-		$('#mainPage').append('<p> ID : ' + id + '</p>');
-
+	    $('#fname').html("First name : " +fname);
+	    $('#lname').html("Last name : " +lname);
+	    $('#email').html("Email : " +email);
+	    $('#phno').html("Phone number : " +phno);
+	    $('#stid').html("Student ID : " + id);
+  };
+ var onSuccessCourseInfo = function(data)	{
+	console.log("Inside success");
+	    var courseName = data.courseName;
+	    var courseInfo =  data.courseInfo;
+	    $('#cName').html("Course name : " + courseName);
+	    $('#cInfo').html("Course info : " + courseInfo);
+	    
  };
  
  var initUI = function()	{
