@@ -774,11 +774,46 @@ var getGrade = function(score)	{
  };
  
  var initUI = function()	{
-	 var hPoints = localStorage.getItem("hgradeCutOff");
-	 if(hPoints)	{
+	var hPoints = localStorage.getItem("hgradeCutOff");
+	if(hPoints)	{
 		$("#hpoints").prop("max", hPoints).slider("refresh"); // this line should be 	 $("#hpoints").prop("max", hgApoint).slider("refresh");
-	 }else	{
+	}else	{
 		$("#hpoints").prop("max", 500).slider("refresh"); // this line should be 	 $("#hpoints").prop("max", hgApoint).slider("refresh");
+	}
+	
+	var lPoints = localStorage.getItem("lgradeCutOff");
+	if(lPoints)	{
+		$("#lpoints").prop("max", lPoints).slider("refresh"); // this line should be 	 $("#hpoints").prop("max", hgApoint).slider("refresh");
+	}else	{
+		$("#lpoints").prop("max", 500).slider("refresh"); // this line should be 	 $("#hpoints").prop("max", hgApoint).slider("refresh");
+	}
+
+	 var pPoints = localStorage.getItem("pgradeCutOff");
+	 if(pPoints)	{
+		$("#ppoints").prop("max", pPoints).slider("refresh"); // this line should be 	 $("#hpoints").prop("max", hgApoint).slider("refresh");
+	 }else	{
+		$("#ppoints").prop("max", 200).slider("refresh"); // this line should be 	 $("#hpoints").prop("max", hgApoint).slider("refresh");
+	 }	 
+	 
+	 var prPoints = localStorage.getItem("prgradeCutOff");
+	 if(prPoints)	{
+		$("#prpoints").prop("max", prPoints).slider("refresh"); // this line should be 	 $("#hpoints").prop("max", hgApoint).slider("refresh");
+	 }else	{
+		$("#prpoints").prop("max", 100).slider("refresh"); // this line should be 	 $("#hpoints").prop("max", hgApoint).slider("refresh");
+	 }
+
+	 var mPoints = localStorage.getItem("mgradeCutOff");
+	 if(mPoints)	{
+		$("#mpoints").prop("max", mPoints).slider("refresh"); // this line should be 	 $("#hpoints").prop("max", hgApoint).slider("refresh");
+	 }else	{
+		$("#mpoints").prop("max", 100).slider("refresh"); // this line should be 	 $("#hpoints").prop("max", hgApoint).slider("refresh");
+	 }
+	 
+	 var fPoints = localStorage.getItem("fgradeCutOff");
+	 if(fPoints)	{
+		$("#fpoints").prop("max", fPoints).slider("refresh"); // this line should be 	 $("#hpoints").prop("max", hgApoint).slider("refresh");
+	 }else	{
+		$("#fpoints").prop("max", 100).slider("refresh"); // this line should be 	 $("#hpoints").prop("max", hgApoint).slider("refresh");
 	 }
  };
 
