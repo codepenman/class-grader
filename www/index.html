@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,9 +13,9 @@
     <!--  h=homework, l=lab, p=project, pr=presentation, m=midterm, f=finals -->
     <body>
         <div data-role="page" class="" id="mainPage">
-            <div data-role="header" class="" data-theme="c">
+            <div data-role="header" class="" data-theme="c" data-role="button" style="background:#cc0000; color: white;">
                 <h1>Grade Factory</h1>
-                <a href="#settingsPage" id='settingsButton' class="ui-btn-right" data-role="button" data-icon="gear">Settings</a>
+                <a href="#settingsPage" id='settingsButton' class="ui-btn-right" data-role="button" data-icon="gear" data-role="button" style="background: black; color: white;">Settings</a>
             </div>
             <div data-role="content" class="">
                 <form>
@@ -56,7 +55,7 @@
                         <!--<input type="number" name="fpoints" id="fpoints" data-clear-btn="true" maxlength="3" value="" placeholder="Enter final points here"><br/>-->
                     </div>
                     <p style="text-align: center;">
-                    <a href="#" id="computeGrade" data-role="button" data-icon="check">Compute Grade</a>
+                    <a href="#" id="computeGrade" data-role="button" data-icon="check" style="background: black; color: white;">Compute Grade</a>
                     </p>
                     <p class="final grade">
                     <label>Final Grade</label>
@@ -80,8 +79,8 @@
             
         </div>
         <div data-role="page" class="" id="settingsPage" data-add-back-btn="true" >
-            <div data-role="header" class="">
-                <a href="#" id='cancelSettings' class="ui-btn ui-icon-delete ui-btn-icon-left" data-rel="back">Cancel</a>
+            <div data-role="header" class="" style="background:#cc0000; color: white;">
+                <a href="#" id='cancelSettings' class="ui-btn ui-icon-delete ui-btn-icon-left" data-rel="back" style="background:black; color: white;">Cancel</a>
                 <h1>Grade - Settings</h1>
             </div>
             <div>
@@ -169,7 +168,7 @@
 					</ul>
                     </div>
                     <p style="text-align: center;">
-                        <a href="#" id='saveSettings' data-role="button" data-inline="true" data-icon="check">Save</a>
+                        <a href="#" id='saveSettings' data-role="button" data-inline="true" data-icon="check" data-role="button" style="background:green; color: white;">Save</a>
 					</p>
                 </form>
             </div>

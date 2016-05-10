@@ -1,4 +1,5 @@
 (function($) {
+
  "use strict";
  // h=homework, l=lab, p=project, pr=presentation, m=midterm, f=finals
  var hgApoint = 500.0;
@@ -820,6 +821,7 @@ var getGrade = function(score)	{
  // Setup the event handlers
  $( document ).on( "ready", function()
                   {
+                  
                   $('#computeGrade').on('click', computeGrade);
                   $('#saveSettings').on('click', saveSettings);
                   $('#cancelSettings').on('click', cancelSettings);	
