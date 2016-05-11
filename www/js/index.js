@@ -832,7 +832,7 @@ var getGrade = function(score)	{
                   initializeMidtermSettings();
                   initializeFinalSettings();
 				  initializeGradeRange();
-				  getStudentInfo();				  
+				  getStudentInfo();
  });
 
  // Load plugin
