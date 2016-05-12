@@ -20,8 +20,13 @@
            background: #004d99 !important;
          }
          .ui-page { 
-    background:#ffeecc;
-    
+          //background:#ffeecc;
+         // background:white;
+           background-image: url("img/board1.jpg");
+       // background-size: 808px 600px;
+          // background-repeat: no-repeat;
+         color : white;
+         font-family: "Comic Sans MS", "Comic Sans", cursive;
         }
         
         
@@ -32,7 +37,7 @@
     <!--  h=homework, l=lab, p=project, pr=presentation, m=midterm, f=finals -->
     <body>
         <div data-role="page" class="" id="mainPage">
-            <div data-role="header" class="" data-theme="c" data-role="button" style="background:#cc0000; color: white;">
+            <div data-role="header" class="" data-theme="c" data-role="button" style="background:#009999; color: white;">
                 <h1>Grade Factory</h1>
                 <a href="#settingsPage" id='settingsButton' class="ui-btn-right" data-role="button" data-icon="gear" data-role="button" style="background: black; color: white;">Settings</a>
             </div>
@@ -74,7 +79,7 @@
                         <!--<input type="number" name="fpoints" id="fpoints" data-clear-btn="true" maxlength="3" value="" placeholder="Enter final points here"><br/>-->
                     </div>
                     <p style="text-align: center;">
-                    <a href="#" id="computeGrade" data-role="button" data-icon="check" style="background: black; color: white;">Compute Grade</a>
+                    <a href="#" id="computeGrade" data-role="button" data-icon="check" style="background:#008ae6; color: white;">Compute Grade</a>
                     </p>
                     <p class="final grade">
                     <label>Final Grade</label>
@@ -98,7 +103,7 @@
             
         </div>
         <div data-role="page" class="" id="settingsPage" data-add-back-btn="true" >
-            <div data-role="header" class="" style="background:#cc0000; color: white;">
+            <div data-role="header" class="" style="background:#009999; color: white;">
                 <a href="#" id='cancelSettings' class="ui-btn ui-icon-delete ui-btn-icon-left" data-rel="back" style="background:black; color: white;">Cancel</a>
                 <h1>Grade - Settings</h1>
             </div>
@@ -187,7 +192,7 @@
 					</ul>
                     </div>
                     <p style="text-align: center;">
-                        <a href="#" id='saveSettings' data-role="button" data-inline="true" data-icon="check" data-role="button" style="background:black; color: white;">Save</a>
+                        <a href="#" id='saveSettings' data-role="button" data-inline="true" data-icon="check" data-role="button" style="background:#008ae6; color: white;">Save</a>
 					</p>
                 </form>
             </div>
