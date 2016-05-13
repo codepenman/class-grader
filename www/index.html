@@ -22,8 +22,7 @@
          .ui-page { 
            background-image: url("img/board2.jpg");
            color : white;
-		   <!--font-family: "Comic Sans MS", "Comic Sans", cursive;-->
-		   font-style: normal;
+		   font-family: "Comic Sans MS", "Comic Sans", cursive;
         }
         .ui-content	{
 			font-size: 26px;
@@ -37,43 +36,43 @@
     <body>
         <div data-role="page" class="" id="mainPage">
             <div data-role="header" class="" data-theme="c" data-role="button" style="background-image:url('img/frame.jpg'); color: white;">
-                <h1>Grade Factory</h1>
+                <h1 style='"Comic Sans MS", "Comic Sans", cursive; font-size: 20px;'>Grade Calculator</h1>
                 <a href="#settingsPage" id='settingsButton' class="ui-btn-right" data-role="button" data-icon="gear" data-role="button" style="background-image:url('img/frame.jpg'); color: white;">Settings</a>
             </div>
             <div data-role="content" class="gr">
                 <form>
                     <div data-role="fieldcontain">
-                        <label for="hpoints">Homework Points</label>
+                        <label for="hpoints" style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px;'>Homework Points</label>
 						<input type="range" name="hpoints" id="hpoints" value="1" min="1" max="500" step="1" />
                         <!--<input type="number" name="hpoints" id="hpoints" data-clear-btn="true" maxlength="3" value="" placeholder="Enter homework points here"><br/>-->
                        </div>
                        
                         <div data-role="fieldcontain" id="gr">
-                         <label for="lpoints">Lab Points</label>
+                         <label for="lpoints" style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px;'>Lab Points</label>
 						 <input type="range" name="lpoints" id="lpoints" value="1" min="1" max="500" step="1" />
                         <!--<input type="number" name="lpoints" id="lpoints" data-clear-btn="true" maxlength="3" value="" placeholder="Enter lab points here"><br/>-->
                         </div>
                         
                          <div data-role="fieldcontain">
-                         <label for="ppoints">Project Points</label>
+                         <label for="ppoints" style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px;'>Project Points</label>
 						 <input type="range" name="ppoints" id="ppoints" value="1" min="1" max="200" step="1" />
                         <!--<input type="number" name="ppoints" id="ppoints" data-clear-btn="true" maxlength="3" value="" placeholder="Enter project points here"><br/>-->
                          </div>
                          
                          <div data-role="fieldcontain">
-                         <label for="prpoints">Presentation Points</label>
+                         <label for="prpoints" style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px;'>Presentation Points</label>
 						 <input type="range" name="prpoints" id="prpoints" value="1" min="1" max="100" step="1" />
                         <!--<input type="number" name="prpoints" id="prpoints" data-clear-btn="true" maxlength="3" value="" placeholder="Enter presentation points here"><br/>-->
                          </div>
                         
                          <div data-role="fieldcontain">
-                         <label for="Points">Midterm Points</label>
+                         <label for="Points" style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px;'>Midterm Points</label>
 						 <input type="range" name="mpoints" id="mpoints" value="1" min="1" max="100" step="1" />
                         <!--<input type="number" name="mpoints" id="mpoints" data-clear-btn="true" maxlength="3" value="" placeholder="Enter midterm points here"><br/>-->
                          </div>
                          
                          <div data-role="fieldcontain">
-                         <label for="fpoints">Finals Points</label>
+                         <label for="fpoints" style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px;'>Finals Points</label>
 						 <input type="range" name="fpoints" id="fpoints" value="1" min="1" max="100" step="1" />
                         <!--<input type="number" name="fpoints" id="fpoints" data-clear-btn="true" maxlength="3" value="" placeholder="Enter final points here"><br/>-->
                     </div>
@@ -85,18 +84,21 @@
                     <span id="finalgrade">TBD</span>
                     </p>
                 </form>
-                
-             <h3> Student Information </h3>
-             <p id="fname" name="fname"> </p>
-             <p id="lname" name="lname"> </p>
-             <p id="email" name="email"> </p>
-             <p id="phno" name="phno"> </p>
-             <p id="stid" name="stid"> </p>
              
-             <h3> Course Information </h3>
-             <p id="cName" name="cName"> </p>
-             <p id="cInfo" name="cInfo"> </p>
-             
+			 <div>
+				 <h3 style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px; text-align: center;'> <u>STUDENT INFO</u> </h3>
+				 <p id="fname" name="fname" style='"Comic Sans MS", "Comic Sans", cursive; font-size: 24px;'> </p>
+				 <p id="lname" name="lname"  style='"Comic Sans MS", "Comic Sans", cursive; font-size: 24px;'> </p>
+				 <p id="email" name="email"  style='"Comic Sans MS", "Comic Sans", cursive; font-size: 24px;'> </p>
+				 <p id="phno" name="phno"  style='"Comic Sans MS", "Comic Sans", cursive; font-size: 24px;'> </p>
+				 <p id="stid" name="stid"  style='"Comic Sans MS", "Comic Sans", cursive; font-size: 24px;'> </p>
+             </div>
+
+			 <div>
+				 <h3 style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px; text-align: center;'> <u>COURSE INFO</u> </h3>
+				 <p id="cName" name="cName"  style='"Comic Sans MS", "Comic Sans", cursive; font-size: 24px;'> </p>
+				 <p id="cInfo" name="cInfo"  style='"Comic Sans MS", "Comic Sans", cursive; font-size: 24px; text-align: justify; text-justify: inter-word;'> </p>
+             </div>
             </div>
             
             
@@ -104,85 +106,85 @@
         <div data-role="page" class="" id="settingsPage" data-add-back-btn="true" >
             <div data-role="header" class="" style="background-image:url('img/frame.jpg'); color: white;">
                 <a href="#" id='cancelSettings' class="ui-btn ui-icon-delete ui-btn-icon-left" data-rel="back" style="background-image:url('img/frame.jpg'); color: white;">Cancel</a>
-                <h1>Grade - Settings</h1>
+                <h1 style='"Comic Sans MS", "Comic Sans", cursive; font-size: 20px;'>Settings</h1>
             </div>
             <div>
                 <form>
                     <div data-role="fieldcontain">
-						<label for="hgradeCutOff">Homework Max Points:</label> 
+						<label for="hgradeCutOff" style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px;'>Homework Max Points:</label> 
 						<input type="number" name="hgradeCutOff" id="hgradeCutOff" placeholder="Maximum Points">
-						<label for="hScaleFactor">Homework Scaling Factor:</label> 
+						<label for="hScaleFactor"style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px;'>Homework Scaling Factor:</label> 
 						<input type="number" name="hScaleFactor" id="hScaleFactor" placeholder="Homework scaling factor at">							
                     </div>
 					
                     <div data-role="fieldcontain">
-						<label for="lgradeCutOff">Lab Max Points:</label> 
+						<label for="lgradeCutOff" style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px;'>Lab Max Points:</label> 
 						<input type="number" name="lgradeCutOff" id="lgradeCutOff" value="" placeholder="Maximum Lab points">
-						<label for="lScaleFactor">Lab Scaling Factor:</label> 
+						<label for="lScaleFactor" style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px;'>Lab Scaling Factor:</label> 
 						<input type="number" name="lScaleFactor" id="lScaleFactor" value="" placeholder="Lab scaling factor at">    
                     </div>
                     
                     <div data-role="fieldcontain">
-                      <label for="pgradeCutOff">Project Max Points:</label> 
+                      <label for="pgradeCutOff" style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px;'>Project Max Points:</label> 
 					  <input type="number" name="pgradeCutOff" id="pgradeCutOff" value="" placeholder="Maximum Project Points">
-                      <label for="Scaling Factor">Project Scaling Factor:</label> 
+                      <label for="Scaling Factor" style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px;'>Project Scaling Factor:</label> 
 					  <input type="number" name="pScaleFactor" id="pScaleFactor" value="" placeholder="Project scaling factor at">    
                     </div>
                     
                      <div data-role="fieldcontain">
-                      <label for="prgradeCutOff">Presentation Max Points:</label> 
+                      <label for="prgradeCutOff" style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px;'>Presentation Max Points:</label> 
 					  <input type="number" name="prgradeCutOff" id="prgradeCutOff" value="" placeholder="Maximum Presentation Points">
-                      <label for="prScaleFactor">Presentation Scaling Factor:</label> 
+                      <label for="prScaleFactor"style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px;'>Presentation Scaling Factor:</label> 
 					  <input type="number" name="prScaleFactor" id="prScaleFactor" value="" placeholder="Presentation scaling factor at">    
                      </div>
                     
                     <div data-role="fieldcontain">
-                      <label for="mgradeCutOff">Midterm Max Points:</label> 
+                      <label for="mgradeCutOff" style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px;'>Midterm Max Points:</label> 
 					  <input type="number" name="mgradeCutOff" id="mgradeCutOff" value="" placeholder="Maximum Midterm Points">
-                      <label for="mScaleFactor">Midterm Scaling Factor:</label> 
+                      <label for="mScaleFactor" style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px;'>Midterm Scaling Factor:</label> 
 					  <input type="number" name="mScaleFactor" id="mScaleFactor" value="" placeholder="Midterm scaling factor at"> 
                     </div>
                     
                     <div data-role="fieldcontain">
-                     <label for="fgradeCutOff">Finals Max Points:</label> 
+                     <label for="fgradeCutOff" style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px;'>Finals Max Points:</label> 
 					 <input type="number" name="fgradeCutOff" id="fgradeCutOff" value="" placeholder="Maximum Final Points">
-                     <label for="fScaleFactor">Finals Scaling Factor:</label> 
+                     <label for="fScaleFactor" style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px;'>Finals Scaling Factor:</label> 
 					 <input type="number" name="fScaleFactor" id="fScaleFactor" value="" placeholder="Finals scaling factor at">   
                     </div>
 					
 					<div>
-                     <label>Grade Range</label>
+                     <label style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px;'>Grade Range</label>
 					 <ul>
 						<li>						
-							<label>Grade 'A':</label>
+							<label style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px;'>Grade 'A':</label>
 							<div data-role="rangeslider" data-track-theme="b" data-theme="a" id="aGradeRange">
 								<input type="range" name="aGradeMin" id="aGradeMin" min='0' max ="100" value="90">
 								<input type="range" name="aGradeMax" id="aGradeMax" min='0' max ="100" value="100">
 							</div>
 						</li>
 						<li>						
-							<label>Grade 'B':</label>
+							<label style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px;'>Grade 'B':</label>
 							<div data-role="rangeslider" data-track-theme="b" data-theme="a" id="bGradeRange">
 								<input type="range" name="bGradeMin" id="bGradeMin" min='0' max ="100" value="80">
 								<input type="range" name="bGradeMax" id="bGradeMax" min='0' max ="100" value="89">
 							</div>
 						</li>
 						<li>						
-							<label>Grade 'C':</label>
+							<label style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px;'>Grade 'C':</label>
 							<div data-role="rangeslider" data-track-theme="b" data-theme="a">
 								<input type="range" name="cGradeMin" id="cGradeMin" min='0' max ="100" value="70">
 								<input type="range" name="cGradeMax" id="cGradeMax" min='0' max ="100" value="79">
 							</div>
 						</li>
 						<li>						
-							<label>Grade 'D':</label>
+							<label style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px;'>Grade 'D':</label>
 							<div data-role="rangeslider" data-track-theme="b" data-theme="a">
 								<input type="range" name="dGradeMin" id="dGradeMin" min='0' max ="100" value="60">
 								<input type="range" name="dGradeMax" id="dGradeMax" min='0' max ="100" value="69">
 							</div>
 						</li>
 						<li>						
-							<label>Grade 'F':</label>
+							<label style='"Comic Sans MS", "Comic Sans", cursive; font-size: 26px;'>Grade 'F':</label>
 							<div data-role="rangeslider" data-track-theme="b" data-theme="a">
 								<input type="range" name="fGradeMin" id="fGradeMin" min="0" max="100" value="0">
 								<input type="range" name="fGradeMax" id="fGradeMax" min="0" max="100" value="59">

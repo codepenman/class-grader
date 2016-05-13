@@ -796,8 +796,8 @@ var getGrade = function(score)	{
 	console.log("Inside success");
 	    var courseName = data.courseName;
 	    var courseInfo =  data.courseInfo;
-	    $('#cName').html("Course name : " + courseName);
-	    $('#cInfo').html("Course info : " + courseInfo);
+	    $('#cName').html("Course : " + courseName);
+	    $('#cInfo').html("Info : " + courseInfo);
 	    
  };
  
