@@ -524,6 +524,8 @@ var initializeHomeWorkSettings = function()
                     hgApoint = parseFloat(hgradeCutOffSetting);
                   }
                  $('#hgradeCutOff').val(hgApoint);
+				 localStorage.setItem('hgradeCutOff', hgApoint);
+				 
                  //homework scale
                  var hScaleSetting = localStorage.getItem('hScale');
                  if (hScaleSetting)
@@ -531,6 +533,7 @@ var initializeHomeWorkSettings = function()
                     hScale = parseFloat(hScaleSetting);
                   }
                   $('#hScaleFactor').val(hScale);
+				  localStorage.setItem('hScale', hScale);
                   
 
 
@@ -545,7 +548,7 @@ var initializeLabSettings = function()
                     lgApoint = parseFloat(lgradeCutOffSetting);
                   }
                  $('#lgradeCutOff').val(lgApoint);
-                  
+                  localStorage.setItem('lgradeCutOff', lgApoint);
                   //lab scale
                  var lScaleSetting = localStorage.getItem('lScale');
                  if (lScaleSetting)
@@ -553,6 +556,7 @@ var initializeLabSettings = function()
                     lScale = parseFloat(lScaleSetting);
                   }
                   $('#lScaleFactor').val(lScale);
+				  localStorage.setItem('lScale', lScale);
 
 
 
@@ -568,6 +572,7 @@ var initializeProjectSettings = function()
                   }
                   
                   $('#pgradeCutOff').val(pgApoint);
+				  localStorage.setItem('pgradeCutOff', pgApoint);
                         
                 //project scale
                  var pScaleSetting = localStorage.getItem('pScale');
@@ -577,6 +582,7 @@ var initializeProjectSettings = function()
                   }
                   
                   $('#pScaleFactor').val(pScale);
+				  localStorage.setItem('pScale', pScale);
 
 
 
@@ -593,6 +599,7 @@ var initializePresentationSettings = function()
                   }
                   
                   $('#prgradeCutOff').val(prgApoint);
+				  localStorage.setItem('prgradeCutOff', prgApoint);
                   
                  //presentation scale
                  var prScaleSetting = localStorage.getItem('prScale');
@@ -602,6 +609,7 @@ var initializePresentationSettings = function()
                   }
                   
                   $('#prScaleFactor').val(prScale);
+				  localStorage.setItem('prScale',prScale);
 
 
 };
@@ -615,6 +623,7 @@ var initializeMidtermSettings = function() {
                   }
                   
                   $('#mgradeCutOff').val(mgApoint);
+				  localStorage.setItem('mgradeCutOff', mgApoint);
                          //Midterm scale
                  var mScaleSetting = localStorage.getItem('mScale');
                  if (mScaleSetting)
@@ -623,6 +632,7 @@ var initializeMidtermSettings = function() {
                   }
                   
                   $('#mScaleFactor').val(mScale);
+				  localStorage.setItem('mScale', mScale);
 };
 
 var initializeFinalSettings = function() {
@@ -636,6 +646,7 @@ var initializeFinalSettings = function() {
                   }
                   
                   $('#fgradeCutOff').val(fgApoint);
+				  localStorage.setItem('fgradeCutOff', fgApoint);
                   
                 //Final scale
                  var fScaleSetting = localStorage.getItem('fScale');
@@ -645,6 +656,7 @@ var initializeFinalSettings = function() {
                   }
                   
                   $('#fScaleFactor').val(fScale);
+				  localStorage.setItem('fScaleFactor',fScale);
 };
  
 var initializeGradeRange = function() {
@@ -702,6 +714,21 @@ var initializeGradeRange = function() {
 
 	$('#fGradeMax').val(fMax);
 	$('#fGradeMin').val(fMin);
+	
+    localStorage.setItem('aMin', aMin);
+	localStorage.setItem('aMax', aMax);
+
+    localStorage.setItem('bMin', bMin);
+	localStorage.setItem('bMax', bMax);
+
+    localStorage.setItem('cMin', cMin);
+	localStorage.setItem('cMax', cMax);
+
+    localStorage.setItem('dMin', dMin);
+	localStorage.setItem('dMax', dMax);
+
+    localStorage.setItem('fMin', fMin);
+	localStorage.setItem('fMax', fMax);	
 };
   
 var getGrade = function(score)	{

@@ -20,15 +20,14 @@
            background: #004d99 !important;
          }
          .ui-page { 
-          //background:#ffeecc;
-         // background:white;
            background-image: url("img/board2.jpg");
-       // background-size: 808px 600px;
-          // background-repeat: no-repeat;
-         color : white;
-         font-family: "Comic Sans MS", "Comic Sans", cursive;
+           color : white;
+		   <!--font-family: "Comic Sans MS", "Comic Sans", cursive;-->
+		   font-style: normal;
         }
-        
+        .ui-content	{
+			font-size: 26px;
+		}
         
         </style>
     </head>
@@ -79,7 +78,7 @@
                         <!--<input type="number" name="fpoints" id="fpoints" data-clear-btn="true" maxlength="3" value="" placeholder="Enter final points here"><br/>-->
                     </div>
                     <p style="text-align: center;">
-                    <a href="#" id="computeGrade" data-role="button" data-icon="check" style="background:#008ae6; color: white;">Compute Grade</a>
+                    <a href="#" id="computeGrade" data-role="button" data-icon="check" style="background-image:url('img/frame.jpg'); color: white;">Compute Grade</a>
                     </p>
                     <p class="final grade">
                     <label>Final Grade</label>
@@ -192,7 +191,7 @@
 					</ul>
                     </div>
                     <p style="text-align: center;">
-                        <a href="#" id='saveSettings' data-role="button" data-inline="true" data-icon="check" data-role="button" style="background:#008ae6; color: white;">Save</a>
+                        <a href="#" id='saveSettings' data-role="button" data-inline="true" data-icon="check" data-role="button" style="background-image:url('img/frame.jpg'); color: white;">Save</a>
 					</p>
                 </form>
             </div>
